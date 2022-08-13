@@ -1,0 +1,66 @@
+body {
+  position: relative;
+  background-color: rgb(13, 1, 24);
+}
+.test {
+  color: white;
+  background-color: rgb(20, 1, 73);
+  position: absolute;
+  border: none;
+  border-radius: 50%;
+  text-align: center;
+  width: 100px;
+  padding: 6px;
+}
+.test > a:hover {
+  color: white;
+}
+.post {
+  display: flex;
+  align-items: center;
+  flex-direction: column-reverse;
+}
+#posts {
+  text-align: center;
+  background-color: rgb(20, 1, 73);
+  padding-right: 30px;
+  padding-left: 30px;
+  padding-bottom: 30px;
+  width: 240px;
+  margin-top: 24px;
+  border-radius: 4px;
+  color: white;
+  font-weight: bold;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+textarea {
+  border: none;
+  border-radius: 4px;
+  width: 200px;
+  outline: none;
+  border: 2px solid rgb(43, 1, 73);
+}
+input[type="submit"] {
+  width: 100px;
+  border: none;
+  background-color: aqua;
+  border-radius: 4px;
+  outline: none;
+  padding: 6px;
+}
+@media (max-width: 600px) {
+  .test {
+     width:80px;
+     padding:4px;
+  }
+}
+@media (max-width: 480px) {
+  textarea {
+    width: 160px;
+  }
+}
+@media (max-width: 375px) {
+  textarea {
+    width: 100px;
+  }
+}

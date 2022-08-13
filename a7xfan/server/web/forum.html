@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Avenged Sevenfold Forum</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="/static/css/forum.css"/>
+    </head>
+    <body>
+      <div class="test">
+         <p>total {{total}} users</p>
+         <a href="/log_out">Logout</a>
+      </div>
+      <div class="post">
+         {% for posts in Data %}
+           <div id="posts"><span style="font-size:20px;">@{{posts.username}}</span> <br/><br/> {{posts.post}}</div>
+         {% endfor %}
+         <div id="text"></div>
+            <form action="" method="post">
+               <textarea name="post" class="posting"></textarea><br/>
+               <input type="submit" value="Post" id="click">
+            </form>
+      </div>
+       <script>
+         $(document).on('submit', 'form', function(e){
+            e.preventDefault();
+            $.ajax({
+               type: 'POST',
+               url: '/forum/',
+               data: {
+                 post: $('.posting').val(),
+                 csrfmiddlewaretoken: '{{ csrf_token }}'
+               },
+               success: function(data) {
+                  $('#text').prepend('<div style="background-color: rgb(20, 1, 73); width: 240px; padding-right: 30px; padding-left: 30px; padding-bottom: 30px; border-radius: 4px; color: white; font-weight: bold; font-family: Trebuchet MS, Lucida Sans Unicode, Lucida Grande, Lucida Sans, Arial, sans-serif; margin-top: 24px; text-align: center;">' + '<span style="font-size:20px;">@' + data.username + '</span>' + '<br/><br/>' + data.post + '<br/><div/>');
+               }
+            });
+         });
+       </script>
+    </body>
+</html>

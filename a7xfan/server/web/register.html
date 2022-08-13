@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Register</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Blaka">
+        <link rel="stylesheet" type="text/css" href="/static/css/auth.css"/>
+    </head>
+    <body>
+        <div class="content">
+          <div class="background">
+            <div class="form">
+              {{alert|safe}}
+              <h1>Sign-up</h1>
+              <form action="" method="post" onsubmit="return register();">
+                {% csrf_token %}
+                  <input type="username" name="user" id="user" placeholder="username">
+                  <input type="email" name="mail" id="mail" placeholder="email">
+                  <input type="password" name="pass" id="pass" placeholder="password">
+                  <input type="password" name="retype-pass" id="retype-pass" placeholder="retype-password">
+                  <input type="submit" value="Sign-up"><br/><br/>
+                  <a href="/sign_in/">Sign-in</a>
+              </form>
+            </div>
+          </div>
+        </div>
+        <script src="/static/js/auth.js"></script>
+    </body>
+</html>
